@@ -46,4 +46,3 @@ https://docs.google.com/spreadsheets/d/1wUO91cHNPPsJqfudkRIaTWHNiMb6HMaomUh4lAJe
 
 
 # 工夫したポイント
-
