@@ -1,24 +1,49 @@
-# README
+# アプリケーション名
+聖地巡礼史 ～日本全国の魅力再発見～
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
-Things you may want to cover:
+# アプリケーション概要
+漫画やアニメ、ドラマ等の聖地を共有することで、漫画等を好きな人が聖地を訪れることができます。<br>また、聖地がある場所も観光客が多く訪れることで、その土地に更なる繁栄がもたらせることができます。
 
-* Ruby version
 
-* System dependencies
+# URL
 
-* Configuration
 
-* Database creation
 
-* Database initialization
+# テスト用アカウント
+作成中
 
-* How to run the test suite
 
-* Services (job queues, cache servers, search engines, etc.)
+# 利用方法
 
-* Deployment instructions
 
-* ...
+# アプリケーションを作成した背景
+職場の同僚にヒアリングし、「地元にもう少し観光客が来て賑やかになってほしい」という課題を抱えていました。課題を分析した結果、「観光客が行きたいと思う観光スポットがない」ということが原因であると仮説を立てました。ほかの同僚と話していると、「ドラマの撮影場所に選ばれてから観光客が増えて賑やかになっている」ということを聞きました。更に調べてみると人知れずドラマや映画の撮影場所になっていたり、アニメや漫画の舞台となっている場所が多く存在していることを知りました。このような場所を多くの人に知ってもらえると、知った人は行ってみたいと思いますし、来てもらった地元の方には喜んでいただけると考えています。このような経緯で聖地巡礼ができるアプリケーションを開発することとしました。
+
+
+# 洗い出した要件
+https://docs.google.com/spreadsheets/d/1wUO91cHNPPsJqfudkRIaTWHNiMb6HMaomUh4lAJeziU/edit#gid=982722306
+
+
+# 実装した機能についての画像やGIF及びその説明
+
+
+# 実装予定の機能
+
+
+# データベース設計
+[![Image from Gyazo](https://i.gyazo.com/9dc48b38ad6acce14f5df626891fdadb.png)](https://gyazo.com/9dc48b38ad6acce14f5df626891fdadb)
+
+
+# 画面遷移図
+[![Image from Gyazo](https://i.gyazo.com/201a8df0ad968da0709ccb124f5417e3.png)](https://gyazo.com/201a8df0ad968da0709ccb124f5417e3)
+
+
+# 開発環境
+
+
+# ローカルでの作動方法
+
+
+# 工夫したポイント
+
