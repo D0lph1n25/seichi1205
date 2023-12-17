@@ -12,19 +12,20 @@
 | birthday                | date           | null: false                           |
 
 ### Association
-- has_many :places
+- has_many :seichis
 - has_many :comments
 - has_many :favorites
 
 
-## placesテーブル
+## seichisテーブル
 
 | Colum                       | Type            | Options                        |
 | --------------------------- | --------------- | ------------------------------ |
-| title                   | string          | null: false                    |
-| introduction                   | text            | null: false                    |
-| category_id            | integer         | null: false                    |
+| title                       | string          | null: false                    |
+| introduction                | text            | null: false                    |
+| category_id                 | integer         | null: false                    |
 | prefecture_id               | integer         | null: false                    |
+| addresses                   | string          | null: false                    |
 | user                        | references      | null: false, foreign_key: true |
 
 ### Association
@@ -43,7 +44,7 @@
 
 ### Association
 - belongs_to :user
-- belongs_to :place
+- belongs_to :seichi
 
 
 ## commentsテーブル
@@ -56,4 +57,4 @@
 
 ### Association
 - belongs_to :user
-- belongs_to :place
+- belongs_to :seichi

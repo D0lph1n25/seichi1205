@@ -1,0 +1,2 @@
+class SeichisController < ApplicationController
+end
