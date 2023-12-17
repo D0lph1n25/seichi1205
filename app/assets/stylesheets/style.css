@@ -1,0 +1,59 @@
+/***********新規登録画面******************/
+.contents {
+  height: 700px;
+  display: flex;
+  justify-content: center;
+  align-items: top;
+  background-color: #eeeeee;
+}
+
+.signup {
+  width: 100px;
+  margin: 0 auto;
+}
+
+.container {
+  height: 600px;
+  width: 600px;
+  background-color: #ccffff;
+  padding: 20px;
+  
+}
+
+.field {
+  font-size: 18px;
+  width: 500px;
+  margin: 0 auto 10px;
+}
+
+.sign_form {
+  border-radius: 5px;
+}
+
+.send {
+  width: 200px;
+  padding: 15px;
+  border: 1px solid white;
+  color: white;
+  background-color: rgba(77, 255, 0, 0.601);
+  display: block;
+  margin: 0 auto 10px;
+
+}
+/************ログイン画面****************/
+
+.login {
+  width: 100px;
+  margin: 0 auto;
+}
+
+
+.login_btn{
+  width: 200px;
+  padding: 15px;
+  border: 1px solid white;
+  color: white;
+  background-color: rgba(77, 255, 0, 0.601);
+  display: block;
+  margin: 0 auto 10px;
+}
