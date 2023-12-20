@@ -26,6 +26,10 @@
 | category_id                 | integer         | null: false                    |
 | prefecture_id               | integer         | null: false                    |
 | addresses                   | string          | null: false                    |
+| latitude                    | float           |
+null: false                    |
+| longitude                   | float           |
+null: false                    |
 | user                        | references      | null: false, foreign_key: true |
 
 ### Association

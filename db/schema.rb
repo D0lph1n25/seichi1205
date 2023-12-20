@@ -17,6 +17,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_12_17_044925) do
     t.integer "category_id", null: false
     t.integer "prefecture_id", null: false
     t.string "addresses", null: false
+    t.float "latitude", null: false
+    t.float "longitude", null: false
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
