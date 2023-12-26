@@ -1,11 +1,11 @@
 class SeichisController < ApplicationController
 
   def index
-    seichis = Seichi.all
+    @seichis = Seichi.all
   end
 
   def new
-    seichi = Seichi.new
+    @seichi = Seichi.new
   end
 
   def create

@@ -1,0 +1,23 @@
+{
+  "name": "seichi1205",
+  "version": "1.0.0",
+  "description": "| Column                  | Type           | Options                               |\r |------------------------ | -------------- | ------------------------------------- |\r | nickname                | string         | null: false                           |\r | email                   | string         | null: false, unique: true             |\r | encrypted_password      | string         | null: false                           |\r | last_name               | string         | null: false                           |\r | first_name              | string         | null: false                           |\r | last_name_kana          | string         | null: false                           |\r | first_name_kana         | string         | null: false                           |\r | birthday                | date           | null: false                           |",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/D0lph1n25/seichi1205.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/D0lph1n25/seichi1205/issues"
+  },
+  "homepage": "https://github.com/D0lph1n25/seichi1205#readme"
+}
