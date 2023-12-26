@@ -1,0 +1,13 @@
+<h3>投稿する</h3>
+    <%= form_with(model: @seichi, local: true) do |form| %>
+      <%= form.text_field :title, placeholder: "作品名" %>
+      <%= form.text_area :introduction, placeholder: "場所の紹介" %>
+      
+      <%#collectionserectは後で記述%>
+      <%= form.collection_select(:category_id, Category.all, :id, :name, {}, {class:"select-box", id:"seichi-category"}) %>
+       <%#collectionserectは後で記述%>
+
+      <%= form.collection_select(:prefecture_id, Prefecture.all, :id, :name, {}, {class:"select-box", id:"seichi-prefecture"}) %>
+      <%= form.text_field :addresses, placeholder: "都道府県以下の住所"%>
+      <%= form.submit "SEND" %>
+    <% end %>

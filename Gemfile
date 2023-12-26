@@ -79,3 +79,4 @@ end
 gem 'devise'
 gem 'pry-rails'
 gem 'dotenv-rails'
+gem 'active_hash'
