@@ -10,4 +10,5 @@ class Seichi < ApplicationRecord
   validates :category_id, presence: true
   validates :prefecture_id, numericality: { other_than: 1 , message: "can't be blank"}
   validates :addresses, presence: true
+  validates :image, presence: true
 end

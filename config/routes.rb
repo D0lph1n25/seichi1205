@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root to: "seichis#index"
   devise_for :users
+  root to: "seichis#index"
   resources :seichis, only: [:index, :new, :create]
 end
