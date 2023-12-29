@@ -5,6 +5,8 @@
       <%= form.collection_select(:category_id, Category.all, :id, :name, {}, {class:"select-box", id:"seichi-category"}) %>
       <%= form.collection_select(:prefecture_id, Prefecture.all, :id, :name, {}, {class:"select-box", id:"seichi-prefecture"}) %>
       <%= form.text_field :addresses, placeholder: "都道府県以下の住所"%>
+      <%= form.text_field :latitude, placeholder: "緯度"%>
+      <%= form.text_field :longitude, placeholder: "経度"%>
       <%= form.file_field :image, id:"seichi-image" %>
       <%= form.submit "SEND" %>
     <% end %>
