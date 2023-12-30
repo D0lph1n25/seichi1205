@@ -9,8 +9,12 @@ class SeichisController < ApplicationController
   end
 
   def create
-    Seichi.create(seichi_params)
-    redirect_to root_path
+    @seichi = Seichi.create(seichi_params)
+    if @seichi.save
+      redirect_to root_path
+    else
+      render :new, status: :unprocessable_entity
+    end
   end
 
   private
