@@ -27,10 +27,8 @@ function placeMarker(location) {
     // マーカーを配列に追加
     markers.push(marker);
 
-    const lat = location.lat();
-    const lng = location.lng();
-
-    console.log(`Latitude: ${lat}, Longitude: ${lng}`);
+    document.getElementById('latitude').value = location.lat();
+    document.getElementById('longitude').value = location.lng();
 
     // ここで座標をサーバーに送信するなどの処理を実行できます
 }
