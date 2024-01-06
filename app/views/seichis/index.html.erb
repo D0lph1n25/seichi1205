@@ -1,0 +1,17 @@
+
+    <h3>聖地</h3>
+    <!--The div element for the map -->
+    <div id="map"></div>
+
+    <script async
+        src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE_MAPS_API_KEY'] %>&libraries=places&callback=initMap">
+    </script>
+
+    <%= javascript_include_tag 'maps' %>
+
+    <div class=seichi_post >
+      
+
+    <% @seichis.each do | seichi | %>
+      <%= seichi.title %>
+    <% end %>

@@ -1,0 +1,2 @@
+module SeichisHelper
+end
