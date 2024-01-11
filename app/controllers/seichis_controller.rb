@@ -18,7 +18,10 @@ class SeichisController < ApplicationController
       render :new, status: :unprocessable_entity
     end
   end
-  
+
+  def show
+    @seichi = Seichi.find(params[:id])
+  end
 
   private
   
