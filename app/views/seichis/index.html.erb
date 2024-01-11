@@ -1,17 +1,15 @@
+<%= render "shared/header" %>
 
-    <h3>聖地</h3>
-    <!--The div element for the map -->
-    <div id="map"></div>
+<%= link_to '聖地を投稿する', new_seichi_path, class:"seichi-new-bot"  %>
+<!--The div element for the map -->
+<div id="map"></div>
 
-    <script async
-        src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE_MAPS_API_KEY'] %>&libraries=places&callback=initMap">
-    </script>
+<script async
+    src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE_MAPS_API_KEY'] %>&libraries=places&callback=initMap">
+</script>
 
-    <%= javascript_include_tag 'maps' %>
+<%= javascript_include_tag 'maps' %>
 
-    <div class=seichi_post >
-      
-
-    <% @seichis.each do | seichi | %>
-      <%= seichi.title %>
-    <% end %>
+<% @seichis.each do | seichi | %>
+  <%= seichi.title %>
+<% end %>

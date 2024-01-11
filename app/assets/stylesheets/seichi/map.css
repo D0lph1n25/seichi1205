@@ -2,7 +2,7 @@
  * Always set the map height explicitly to define the size of the div element
  * that contains the map.
  */
- #maps {
+ #map {
   height: 300px;
   width: 700px;
  }
@@ -20,4 +20,14 @@ body {
 #mapragistration {
   height: 300px;
   width: 700px;
+}
+
+.header{
+  display: flex;
+  justify-content: space-between;
+  padding: 50px;
+}
+
+.seichi-top{
+  
 }

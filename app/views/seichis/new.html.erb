@@ -7,15 +7,15 @@
 
 <%= javascript_include_tag 'mapragistration' %>
 
-    <%= form_with(model: @seichi, local: true) do |form| %>
+  <%= form_with(model: @seichi, local: true) do |form| %>
 
-      <%= form.text_field :title, placeholder: "作品名" %>
-      <%= form.text_area :introduction, placeholder: "場所の紹介" %>
-      <%= form.collection_select(:category_id, Category.all, :id, :name, {}, {class:"select-box", id:"seichi-category"}) %>
-      <%= form.collection_select(:prefecture_id, Prefecture.all, :id, :name, {}, {class:"select-box", id:"seichi-prefecture"}) %>
-      <%= form.text_field :addresses, placeholder: "都道府県以下の住所"%>
-      <%= form.hidden_field :latitude, id: "latitude" %>
-      <%= form.hidden_field :longitude, id: "longitude" %>
-      <%= form.file_field :image, id:"seichi-image" %>
-      <%= form.submit "SEND" %>
-    <% end %>
+    <%= form.text_field :title, placeholder: "作品名" %>
+    <%= form.text_area :introduction, placeholder: "場所の紹介" %>
+    <%= form.collection_select(:category_id, Category.all, :id, :name, {}, {class:"select-box", id:"seichi-category"}) %>
+    <%= form.collection_select(:prefecture_id, Prefecture.all, :id, :name, {}, {class:"select-box", id:"seichi-prefecture"}) %>
+    <%= form.text_field :addresses, placeholder: "都道府県以下の住所"%>
+    <%= form.hidden_field :latitude, id: "latitude" %>
+    <%= form.hidden_field :longitude, id: "longitude" %>
+    <%= form.file_field :image, id:"seichi-image" %>
+    <%= form.submit "SEND" %>
+  <% end %>
