@@ -9,5 +9,7 @@
 <%= javascript_include_tag 'maps' %>
 
 <% @seichis.each do | seichi | %>
-  <%= seichi.title %>
+  <%= link_to seichi_path(seichi.id) do %> 
+    <%= seichi.title %>
+  <% end %>
 <% end %>
