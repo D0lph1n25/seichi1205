@@ -1,3 +1,33 @@
+<%= render "shared/header" %>
+
 <h1>聖地詳細</h1>
 
-<%= @seichi.title %>
+<div class="seichi-show">
+  <div class="show-content">
+    <div class="show-title">
+      作品名：<%= @seichi.title %>
+    </div>
+    <div class="show-introduction" >
+      聖地の紹介：<%= @seichi.introduction %>
+    </div>
+    <div class="show-categroy" >
+      作品の分類：<%= @seichi.category[:name] %>
+    </div>
+    <div class="show-prefecture" > 
+      聖地の住所：<%= @seichi.prefecture[:name] %><%= @seichi.addresses %>
+    </div>
+    
+    <%= image_tag @seichi.image ,class:"seichi-box-img" %>
+    
+    <div id="map"></div>
+    <script async
+        src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE_MAPS_API_KEY'] %>&libraries=places&callback=initMap">
+    </script>
+    <%= javascript_include_tag 'maps' %>
+    <% if user_signed_in? && current_user.id == @seichi.user_id %>
+      <%= link_to "編集する", edit_seichi_path(@seichi.id) %>
+    <% end %>
+    <%= link_to "トップページへ戻る", root_path %>  
+  </div>
+</div>
+

@@ -1,6 +1,6 @@
 /***********新規登録画面******************/
 .contents {
-  height: 700px;
+  height: 800px;
   display: flex;
   justify-content: center;
   align-items: top;
@@ -13,7 +13,7 @@
 }
 
 .container {
-  height: 600px;
+  height: 750px;
   width: 600px;
   background-color: #ccffff;
   padding: 20px;
@@ -57,3 +57,22 @@
   display: block;
   margin: 0 auto 10px;
 }
+
+/************聖地詳細画面**********/
+.seichi-show{
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.show-content{
+  height: 90vh;
+  width: 80vw;
+}
+
+.seichi-box-img{
+  width: 400px;
+  height: 400px;
+}
+
