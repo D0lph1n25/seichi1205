@@ -1,6 +1,6 @@
 class SeichisController < ApplicationController
   before_action :move_session, only: [:new, :edit]
-  before_action :seichi_find, only: [:show, :edit, :update]
+  before_action :seichi_find, only: [:show, :edit, :update, :destroy]
 
   def index
     @seichis = Seichi.all
@@ -35,6 +35,13 @@ class SeichisController < ApplicationController
     else
       render :edit, status: :unprocessable_entity
     end
+  end
+
+  def destroy
+    if user_signed_in? && current_user.id == @seichi.user_id
+      @seichi.destroy
+    end
+    redirect_to root_path
   end
 
   private
