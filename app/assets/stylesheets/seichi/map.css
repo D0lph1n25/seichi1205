@@ -18,7 +18,8 @@ body {
 }
 
 #mapragistration,
-#mapragistration-edit {
+#mapragistration-edit,
+#map-show {
   height: 300px;
   width: 700px;
 }
