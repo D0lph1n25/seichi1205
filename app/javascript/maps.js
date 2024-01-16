@@ -3,7 +3,6 @@ let markers = [];
 
 async function initMap() {
   const { Map } = await google.maps.importLibrary("maps");
-  const { AdvancedMarkerView } = await google.maps.importLibrary("marker");
 
   map = new Map(document.getElementById("map"), {
     center: { lat:  34.7024, lng: 135.4959 },

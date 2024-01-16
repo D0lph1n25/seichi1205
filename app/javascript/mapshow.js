@@ -1,24 +1,24 @@
-let map;
-let markers = [];
 
 async function initMap() {
-  const { Map } = await google.maps.importLibrary("maps");
-  const { AdvancedMarkerView } = await google.maps.importLibrary("marker");
+  // The location of seichi
   const latElement = document.getElementById("latitude-show");
   const lonElement = document.getElementById("longitude-show");
   const lat = parseFloat(latElement.textContent);
   const lon = parseFloat(lonElement.textContent);
-  console.log(lat)
+  const mySpot = { lat: lat, lng: lon };
+  const { Map } = await google.maps.importLibrary("maps");
+
+  
   map = new Map(document.getElementById("map-show"), {
-    center: { lat: lat, lng: lon },
     zoom: 15,
+    center: mySpot,
   });
   
-  const marker = new AdvancedMarkerView({
-    position: { lat: lat, lng: lon},
-    map: map
+  const marker = new google.maps.Marker({
+    map: map,
+    position: mySpot,
   });
-  markers.push(marker);
 }
 
-window.addEventListener('turbo:load',initMap)
+let map;
+initMap();
