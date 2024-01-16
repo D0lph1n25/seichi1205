@@ -1,0 +1,8 @@
+<div class="contents row">
+  <p><%= @nickname %>さんの投稿一覧</p>
+  <% @seichis.each do |seichi| %>
+    <div class="content_post" style="background-image: url(<%= seichi.image %>);">
+      <p><%= seichi.title %></p>
+    </div>
+  <% end %>
+</div>
