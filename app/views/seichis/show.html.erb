@@ -27,6 +27,9 @@
     <div id="map-show"></div>
     <script async src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE_MAPS_API_KEY'] %>&libraries=places&callback=initMap"></script>
     <%= javascript_include_tag 'mapshow' %>
+    <div class="show-usernickname">
+      <%= link_to @seichi.user.nickname, user_path(@seichi.user_id) %>
+    </div>
     <% if user_signed_in? && current_user.id == @seichi.user_id %>
       <%= link_to "編集する", edit_seichi_path(@seichi.id) %>
       <%= link_to "削除する", seichi_path(@seichi.id), data: { turbo_method: :delete } %>

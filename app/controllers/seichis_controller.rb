@@ -13,7 +13,6 @@ class SeichisController < ApplicationController
   def create
     @seichi = Seichi.create(seichi_params)
     if @seichi.save
-      render json:{ seichi: @seichi }
       redirect_to root_path
     else
       render :new, status: :unprocessable_entity
