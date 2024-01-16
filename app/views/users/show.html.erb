@@ -1,8 +1,13 @@
-<div class="contents row">
+<div class="mypage">
   <p><%= @nickname %>さんの投稿一覧</p>
-  <% @seichis.each do |seichi| %>
-    <div class="content_post" style="background-image: url(<%= seichi.image %>);">
-      <p><%= seichi.title %></p>
-    </div>
-  <% end %>
+    <% @seichis.each do |seichi| %>
+      <%= link_to seichi_path(seichi.id) do %>
+        <div class="content_post" style="background-image: url(<%= seichi.image %>);">
+        <%= seichi.title %>
+        </div>
+      <% end %>
+    <% end %>
+  <div>
+    <%= link_to 'トップページに戻る', root_path %>
+  </div>
 </div>
