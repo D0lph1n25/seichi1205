@@ -20,6 +20,8 @@ class SeichisController < ApplicationController
   end
 
   def show
+    @comment = Comment.new
+    @comments = @seichi.comments.includes(:user)
   end
 
   def edit
