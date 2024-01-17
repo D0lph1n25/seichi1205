@@ -1,0 +1,77 @@
+.seichi-index-page{
+  display: flex;
+  justify-content: center;
+}
+
+.seichi-new-bot{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+}
+
+#map {
+  margin: auto;
+  height: 300px;
+  width: 700px;
+ }
+
+.seichi-itiran{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.seichi-index{
+  margin: 50px;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  width: 100vw;
+}
+/* 共通のスタイル */
+.seichi-index-content {
+  flex-wrap: wrap; /* もし横に余白を入れたくない場合はコメントアウト */
+}
+
+.seichi-lists{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.seichi-list {
+  width: calc(33.33% - 20px); /* 列数に応じて調整（例では3列） */
+  margin: 10px; /* 余白を調整 */
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/* タイトルと画像のスタイル */
+.seichi-link-index {
+  text-align: center; /* タイトルを中央に配置 */
+}
+
+.seichi-img {
+  width: 33vh;
+  height: 33vh;
+  display: block; /* 余白が発生しないように */
+  margin: 0 auto; /* 画像を中央に配置 */
+  display: inline-block; /* 画像をインラインブロック要素として配置 */
+  vertical-align: top; /* 画像の上端を揃えるため */
+}
+
+/* レスポンシブデザイン */
+@media (max-width: 767px) {
+  .seichi-list {
+    width: calc(50% - 20px); /* 列数に応じて調整（例では2列） */
+  }
+}
+
+@media (max-width: 479px) {
+  .seichi-list {
+    width: 100%; /* 列数に応じて調整（例では1列） */
+  }
+}

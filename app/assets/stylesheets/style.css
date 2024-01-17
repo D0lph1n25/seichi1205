@@ -13,11 +13,19 @@
 }
 
 .container {
+  margin: 50px auto;
   height: 750px;
   width: 600px;
   background-color: #ccffff;
   padding: 20px;
-  
+}
+
+.container-login{
+  margin: 50px auto;
+  height: 350px;
+  width: 600px;
+  background-color: #ccffff;
+  padding: 20px;
 }
 
 .field {

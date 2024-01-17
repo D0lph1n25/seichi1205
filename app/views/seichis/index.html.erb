@@ -1,15 +1,27 @@
 <%= render "shared/header" %>
+<div class="seichi-index-page">
+  <div class="seichi-index-content">
+    <div class="seichi-new-bot">
+      <%= link_to '聖地を投稿する', new_seichi_path  %>
+    </div>
 
-<%= link_to '聖地を投稿する', new_seichi_path, class:"seichi-new-bot"  %>
-
-<div id="map"></div>
-<script async
-    src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE_MAPS_API_KEY'] %>&libraries=places&callback=initMap">
-</script>
-<%= javascript_include_tag 'maps' %>
-
-<% @seichis.each do | seichi | %>
-  <%= link_to seichi_path(seichi.id) do %> 
-    <%= seichi.title %>
-  <% end %>
-<% end %>
+    <h2 class="seichi-itiran">聖地一覧
+    </h2>
+    <div class="seichi-index">
+      <ul class="seichi-lists">
+        <% @seichis.each do | seichi | %>
+          <li class="seichi-list">
+            <%= link_to seichi_path(seichi.id) do %> 
+              <div class="seichi-link-index">
+                <%= seichi.title %>
+                <div class="seichi-image-content">
+                  <%= image_tag seichi.image, class: "seichi-img" %>
+                </div>
+              </div>
+            <% end %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</div>
