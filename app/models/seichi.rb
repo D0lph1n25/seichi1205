@@ -4,6 +4,7 @@ class Seichi < ApplicationRecord
   belongs_to :category
   belongs_to :user
   has_one_attached :image
+  has_many :comments
 
   validates :title, presence: true
   validates :introduction, presence: true

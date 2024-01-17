@@ -57,7 +57,7 @@ null: false                    |
 | --------------- | --------------- | ------------------------------ |
 | comment         | string          | null: false                    |
 | user            | references      | null: false, foreign_key: true |
-| place           | references      | null: false, foreign_key: true |
+| seichi           | references      | null: false, foreign_key: true |
 
 ### Association
 - belongs_to :user
