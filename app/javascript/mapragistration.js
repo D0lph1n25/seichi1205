@@ -43,4 +43,4 @@ function clearMarkers() {
     markers = [];
 }
 
-window.addEventListener('turbo:load',initMap)
+document.addEventListener('DOMContentLoaded', initMap);

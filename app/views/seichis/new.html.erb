@@ -1,14 +1,7 @@
 <h3>投稿する</h3>
+<%= link_to "トップページへ戻る", root_path %> 
 <div id="mapragistration"></div>
-
-<script async
-    src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE_MAPS_API_KEY'] %>&libraries=places&callback=initMap">
-</script>
-
-<%= javascript_include_tag 'mapragistration' %>
-
   <%= form_with(model: @seichi, local: true) do |form| %>
-
     <%= form.text_field :title, placeholder: "作品名" %>
     <%= form.text_area :introduction, placeholder: "場所の紹介" %>
     <%= form.collection_select(:category_id, Category.all, :id, :name, {}, {class:"select-box", id:"seichi-category"}) %>

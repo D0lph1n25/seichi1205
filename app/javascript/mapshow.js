@@ -1,6 +1,5 @@
 
 async function initMap() {
-  // The location of seichi
   const latElement = document.getElementById("latitude-show");
   const lonElement = document.getElementById("longitude-show");
   const lat = parseFloat(latElement.textContent);
@@ -21,4 +20,4 @@ async function initMap() {
 }
 
 let map;
-initMap();
+document.addEventListener('DOMContentLoaded', initMap);
