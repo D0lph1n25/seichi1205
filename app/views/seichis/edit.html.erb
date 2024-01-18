@@ -1,12 +1,6 @@
 <h3>編集する</h3>
 <div id="mapragistration-edit"></div>
 
-<script async
-    src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE_MAPS_API_KEY'] %>&libraries=places&callback=initMap">
-</script>
-
-<%= javascript_include_tag 'mapragistrationedit' %>
-
   <%= form_with(model: @seichi, local: true) do |form| %>
 
     <%= form.text_field :title, placeholder: "作品名" %>

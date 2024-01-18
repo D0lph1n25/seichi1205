@@ -45,6 +45,9 @@
           <strong><%= link_to comment.user.nickname, user_path(comment.user_id)%>：</strong>
           <%= comment.text %>
         </p>
+        <% if user_signed_in? && current_user.id == comment.user_id %>
+          <%= link_to "削除する", seichi_comment_path(comment.seichi_id, comment.id), data: { turbo_method: :delete } %>
+        <% end %>
       <% end %>
     </div>
 
