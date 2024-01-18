@@ -3,11 +3,14 @@
   justify-content: center;
 }
 
-.seichi-new-bot{
+.seichi-index-searchnew-bot{
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
-  height: 100px;
+}
+
+.seichi-new-bot{
+
 }
 
 #map {

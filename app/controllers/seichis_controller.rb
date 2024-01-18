@@ -45,6 +45,10 @@ class SeichisController < ApplicationController
     redirect_to root_path
   end
 
+  def search
+    @seichis = Seichi.search(params[:keyword])
+  end
+
   private
   
   def seichi_params
