@@ -15,9 +15,9 @@ class Seichi < ApplicationRecord
 
   def self.search(search)
     if search != ""
-      Seichi.where('title LIKE(?)', "%#{search}%") 
+      Seichi.where('title LIKE(?) OR introduction LIKE(?)', "%#{search}%", "%#{search}%") 
     else
-      Seichi.all
+      @seichi = []
     end
   end
 
