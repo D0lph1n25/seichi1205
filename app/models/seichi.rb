@@ -12,4 +12,13 @@ class Seichi < ApplicationRecord
   validates :prefecture_id, numericality: { other_than: 1 , message: "can't be blank"}
   validates :addresses, presence: true
   validates :image, presence: true
+
+  def self.search(search)
+    if search != ""
+      Seichi.where('title LIKE(?)', "%#{search}%") 
+    else
+      Seichi.all
+    end
+  end
+
 end
