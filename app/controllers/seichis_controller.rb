@@ -4,10 +4,12 @@ class SeichisController < ApplicationController
 
   def index
     @seichis = Seichi.all
+    @q = Seichi.ransack(params[:q])
   end
 
   def new
     @seichi = Seichi.new
+    
   end
 
   def create
@@ -46,7 +48,8 @@ class SeichisController < ApplicationController
   end
 
   def search
-    @seichis = Seichi.search(params[:keyword])
+    @q = Seichi.ransack(params[:q])
+    @seichis = @q.result
   end
 
   private
