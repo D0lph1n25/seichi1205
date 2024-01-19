@@ -1,6 +1,24 @@
 .header{
   height: 100px;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+  align-items: center;
   padding: 50px;
+}
+
+.seichi-top{
+  position: relative;
+  padding: 0.25em 0;
+  font-size: 30px;
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+}
+
+.seichi-top:after{
+  content: "";
+  display: block;
+  height: 4px;
+  background: -webkit-linear-gradient(to right, rgb(230, 90, 90), transparent);
+  background: linear-gradient(to right, rgb(230, 90, 90), transparent);
 }
