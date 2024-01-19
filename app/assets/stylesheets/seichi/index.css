@@ -1,3 +1,22 @@
+.head-image{
+  height: 500px;
+  width: 100vw;
+  position: relative;
+  filter: brightness(70%);
+}
+
+.image-container .overlay-text {
+  position: absolute; /* 絶対位置付け */
+  top: 50%; /* 上端を中央に */
+  left: 50%; /* 左端を中央に */
+  transform: translate(-50%, -50%); /* 中央揃えのために50%ずつシフト */
+  color: white; /* テキストの色を白に設定 */
+  font-size: 30px; /* テキストのフォントサイズを調整 */
+  font-weight: bold; /* テキストの太さを調整 */
+  text-align: center; /* テキストを中央揃え */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8); /* テキストに影を追加 */
+}
+
 .seichi-index-page{
   display: flex;
   justify-content: center;
@@ -7,6 +26,11 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
+}
+
+#detailed-search-form{
+  display: flex;
+  justify-content: space-around;
 }
 
 .seichi-new-bot{
