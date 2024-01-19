@@ -13,12 +13,8 @@ class Seichi < ApplicationRecord
   validates :addresses, presence: true
   validates :image, presence: true
 
-  def self.search(search)
-    if search != ""
-      Seichi.where('title LIKE(?) OR introduction LIKE(?)', "%#{search}%", "%#{search}%") 
-    else
-      @seichi = []
-    end
+  def self.ransackable_attributes(auth_oject = nil)
+    ["title", "introduction", "category_id", "prefecture_id"]
   end
 
 end
