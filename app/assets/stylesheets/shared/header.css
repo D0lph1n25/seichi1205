@@ -7,13 +7,12 @@
 }
 
 .left-header{
-  width: 80%;
+  width: 70%;
 }
 
 .seichi-top{
   position: relative;
   padding: 0.25em 0;
-  font-size: 30px;
   text-decoration: none;
   color: black;
   font-weight: bold;
@@ -32,15 +31,16 @@
 }
 
 .right-header{
-  width: 20%;
+  width: 30%;
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
 }
 
 .header-log{
   text-decoration: none;
   display: inline-block;
   padding: 0.5em 1em;
+  margin: 0 10px;
   text-decoration: none;
   background:  rgb(230, 90, 90);/*ボタン色*/
   color: #FFF;

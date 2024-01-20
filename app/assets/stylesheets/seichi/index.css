@@ -1,7 +1,13 @@
-.head-image{
-  height: 500px;
+/* 見出し */
+.image-index{
+  height: 300px;
   width: 100vw;
   position: relative;
+}
+
+.head-image{
+  height: 300px;
+  width: 100vw;
   filter: brightness(70%);
 }
 
@@ -16,16 +22,126 @@
   text-align: center; /* テキストを中央揃え */
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8); /* テキストに影を追加 */
 }
+/* 見出し */
 
 .seichi-index-page{
   display: flex;
   justify-content: center;
 }
 
+/* 聖地巡礼史の特徴 */
+.select-reason-contents {
+  padding: 5vh 15vw;
+}
+
+.select-reason-contents>.title {
+  text-align: center;
+  font-size: 3.5vh;
+  font-weight: bold;
+  margin-bottom: 5vh;
+  position: relative;
+}
+
+.select-reason-contents>.title::after {
+  content: '';
+  width: 70px;
+  height: 4px;
+  background-color: rgb(230, 90, 90);
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.reason-lists {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.reason-lists>.list {
+  width: 33vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.list-pict {
+  margin-bottom: 20px;
+  width: 100%;
+  height: 200px;
+  width: 200px;
+}
+
+
+
+.reason-list-text {
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 50px;
+}
+
+.reason-list-blue-text {
+  color:rgb(230, 90, 90);
+}
+
+.reason-list-description {
+  font-size: 18px;
+  margin-top: 20px;
+}
+
+
+/* 聖地巡礼史の特徴 */
+
+.backcolor{
+  background-color:rgb(32, 145, 69) ;
+  height: 15px;
+  margin: 50px;
+}
+
+.backcolortitle{
+  text-align: center;
+
+}
+
+/* 投稿ボタン */
+
+#seichinewbot{
+  text-decoration: none;
+  display: inline-block;
+  padding: 0.5em 1em;
+  margin: 0 10px;
+  text-decoration: none;
+  background:  rgb(230, 90, 90);/*ボタン色*/
+  color: #FFF;
+  border-bottom: solid 4px #627295;
+  border-radius: 3px;
+  font-size: 30px;
+}
+
+#seichinewbot:active{
+  -webkit-transform: translateY(4px);
+  transform: translateY(4px);/*下に動く*/
+  box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.2);/*影を小さく*/
+  border-bottom: none;
+}
+
+/* 投稿ボタン */
+
+
+/* 検索フォーム */
+
+
+.search-field{
+  margin: 0 10px;
+}
+
 .seichi-index-searchnew-bot{
   display: flex;
   justify-content: space-around;
   align-items: center;
+  margin: 20px auto;
 }
 
 #detailed-search-form{
@@ -33,20 +149,44 @@
   justify-content: space-around;
 }
 
-.seichi-new-bot{
-
+#detailed-search-form .search-field input[type="text"] {
+  height: 30px;
 }
 
-#map {
-  margin: auto;
-  height: 300px;
-  width: 700px;
- }
+#detailed-search-form input[type="submit"] {
+  text-decoration: none;
+  display: inline-block;
+  padding: 0.5em 1em;
+  margin: 0 10px;
+  text-decoration: none;
+  background:  rgb(230, 90, 90);/*ボタン色*/
+  color: #FFF;
+  border-bottom: solid 4px #627295;
+  border-radius: 3px;
+}
 
+#detailed-search-form input[type="submit"]:active{
+  -webkit-transform: translateY(4px);
+  transform: translateY(4px);/*下に動く*/
+  box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.2);/*影を小さく*/
+  border-bottom: none;
+}
+/* 検索フォーム */
+
+
+
+#seichinewbot{
+  text-decoration: none;
+}
+
+
+
+/* 聖地一覧 */
 .seichi-itiran{
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 50px 0 0  ;
 }
 
 .seichi-index{
@@ -56,6 +196,11 @@
   flex-wrap: wrap;
   width: 100vw;
 }
+
+.seichi-link-index a {
+  text-decoration: none;
+}
+
 /* 共通のスタイル */
 .seichi-index-content {
   flex-wrap: wrap; /* もし横に余白を入れたくない場合はコメントアウト */
@@ -65,9 +210,11 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  
 }
 
 .seichi-list {
+  
   width: calc(33.33% - 20px); /* 列数に応じて調整（例では3列） */
   margin: 10px; /* 余白を調整 */
   list-style: none;
@@ -80,6 +227,8 @@
 .seichi-link-index {
   text-align: center; /* タイトルを中央に配置 */
 }
+
+
 
 .seichi-img {
   width: 33vh;
