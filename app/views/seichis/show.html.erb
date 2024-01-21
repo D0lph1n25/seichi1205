@@ -49,8 +49,11 @@
           <%= link_to "削除する", seichi_comment_path(comment.seichi_id, comment.id), data: { turbo_method: :delete } %>
         <% end %>
       <% end %>
-    </div>
+      <%# お気に入り機能実装 %>
+      <%= render partial: "shared/favorite", locals: { seichi: @seichi } %>
+      <%# お気に入り機能実装 %>
 
+    </div>
     <% if user_signed_in? && current_user.id == @seichi.user_id %>
       <%= link_to "編集する", edit_seichi_path(@seichi.id) %>
       <%= link_to "削除する", seichi_path(@seichi.id), data: { turbo_method: :delete } %>
