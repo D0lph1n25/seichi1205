@@ -54,10 +54,12 @@
       </ul>
     </div>
     <%# 聖地巡礼史の特徴 %>
-    <div class="backcolor">
+    <div class="backcolor-top">
     </div>
-    <h3 class="backcolortitle">新規登録して投稿してみよう！</h3>
-    <div class="backcolor">
+    <% unless user_signed_in? %>
+      <h3 class="backcolortitle">新規登録して投稿してみよう！</h3>
+    <% end %>
+    <div class="backcolor-under">
     </div>
     <div class="seichi-index-searchnew-bot">
       <div class="seichi-new-bot">

@@ -26,10 +26,8 @@
 | category_id                 | integer         | null: false                    |
 | prefecture_id               | integer         | null: false                    |
 | addresses                   | string          | null: false                    |
-| latitude                    | float           |
-null: false                    |
-| longitude                   | float           |
-null: false                    |
+| latitude                    | float           | null: false                    |
+| longitude                   | float           | null: false                    |
 | user                        | references      | null: false, foreign_key: true |
 
 ### Association
@@ -42,7 +40,6 @@ null: false                    |
 
 | Colum           | Type            | Options                        | 
 | --------------- | --------------- | ------------------------------ |
-| favorite        | integer         |                                |
 | user            | references      | null: false, foreign_key: true |
 | place           | references      | null: false, foreign_key: true |
 
@@ -55,9 +52,9 @@ null: false                    |
 
 | Colum           | Type            | Options                        |
 | --------------- | --------------- | ------------------------------ |
-| comment         | string          | null: false                    |
+| text            | text            | null: false                    |
 | user            | references      | null: false, foreign_key: true |
-| seichi           | references      | null: false, foreign_key: true |
+| seichi          | references      | null: false, foreign_key: true |
 
 ### Association
 - belongs_to :user

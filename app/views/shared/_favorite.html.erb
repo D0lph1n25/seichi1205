@@ -1,12 +1,9 @@
 <div id="favorite-btn<%= @seichi.id %>">
 <% if current_user.id != @seichi.user_id %>
   <% if user_signed_in? && @seichi.favorited_by?(current_user)%>
-    <%=link_to "お気に入り解除", seichi_favorite_path(@seichi.id),  data: { turbo_method: :delete }, class: "seichi_favorites" , remote: true%>
+    <%=link_to "登録解除", seichi_favorite_path(@seichi.id),  data: { turbo_method: :delete }, class: "seichi_favorites" , remote: true%>
   <% else %>
     <%=link_to "お気に入り登録", seichi_favorites_path(@seichi.id), data: { turbo_method: :post }, class: "seichi_favorites", remote: true %>
   <% end %>
 <% end%>
-</div>
-<div class="favorite-count" >
-  お気に入り数：<%= @seichi.favorites.count %>
 </div>

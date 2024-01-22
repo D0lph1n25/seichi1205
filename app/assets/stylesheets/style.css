@@ -1,32 +1,27 @@
 /***********新規登録画面******************/
+.background{
+
+}
+
 .contents {
-  height: 800px;
   display: flex;
   justify-content: center;
-  align-items: top;
-  background-color: #eeeeee;
+  background-color: #cffadd;
+  height: calc(100vh - 100px);
 }
+
+.container {
+  margin: 50px auto;
+  padding: 20px;
+}
+:password 
+:password_confirmation
 
 .signup {
   width: 100px;
   margin: 0 auto;
 }
 
-.container {
-  margin: 50px auto;
-  height: 750px;
-  width: 600px;
-  background-color: #ccffff;
-  padding: 20px;
-}
-
-.container-login{
-  margin: 50px auto;
-  height: 350px;
-  width: 600px;
-  background-color: #ccffff;
-  padding: 20px;
-}
 
 .field {
   font-size: 18px;
@@ -36,19 +31,41 @@
 
 .sign_form {
   border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+
+.input-name{
+  margin-bottom: 10px;
+}
+
+.input-birth-wrap{
+  margin-bottom: 10px;
+}
+
+.actions{
+  height: 100px;
 }
 
 .send {
+  height:50px;
   width: 200px;
-  padding: 15px;
   border: 1px solid white;
   color: white;
-  background-color: rgba(77, 255, 0, 0.601);
+  background-color: rgb(230, 90, 90);
   display: block;
-  margin: 0 auto 10px;
-
+  margin: 50px auto;
 }
+
 /************ログイン画面****************/
+.container-login{
+  margin: 50px auto;
+  width: 600px;
+  background-color: #cffadd;
+  padding: 20px;
+}
+
+
 
 .login {
   width: 100px;
@@ -61,26 +78,9 @@
   padding: 15px;
   border: 1px solid white;
   color: white;
-  background-color: rgba(77, 255, 0, 0.601);
+  background-color: rgb(230, 90, 90);
   display: block;
   margin: 0 auto 10px;
 }
 
-/************聖地詳細画面**********/
-.seichi-show{
-  height: 100%;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-}
-
-.show-content{
-  height: 90vh;
-  width: 80vw;
-}
-
-.seichi-box-img{
-  width: 400px;
-  height: 400px;
-}
-
+/************ユーザー情報編集画面**********/

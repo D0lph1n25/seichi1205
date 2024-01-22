@@ -1,0 +1,17 @@
+.seichi-show{
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.show-content{
+  height: 90vh;
+  width: 80vw;
+}
+
+.seichi-box-img{
+  width: 400px;
+  height: 400px;
+}
+

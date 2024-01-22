@@ -94,10 +94,16 @@
 
 /* 聖地巡礼史の特徴 */
 
-.backcolor{
+.backcolor-top{
   background-color:rgb(32, 145, 69) ;
   height: 15px;
-  margin: 50px;
+  margin: 50px 0 0 0;
+}
+
+.backcolor-under{
+  background-color:rgb(32, 145, 69) ;
+  height: 15px;
+  margin: 0 0 50px 0;
 }
 
 .backcolortitle{
