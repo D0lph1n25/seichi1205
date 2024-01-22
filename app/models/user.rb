@@ -6,6 +6,8 @@ class User < ApplicationRecord
 
   has_many :seichis
   has_many :comments
+  has_many :favorites
+
 
   validates :nickname, presence: true, length: { minimum: 6 }
   validates :last_name, presence: true, format: { with: /\A[ぁ-んァ-ヶ一-龥々ー]+\z/ }

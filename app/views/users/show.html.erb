@@ -1,12 +1,15 @@
+<%= render "shared/header" %>
 <div class="mypage">
   <p><%= @nickname %>さんの投稿一覧</p>
-    <% @seichis.each do |seichi| %>
-      <%= link_to seichi_path(seichi.id) do %>
-        <div class="content_post" style="background-image: url(<%= seichi.image %>);">
-        <%= seichi.title %>
-        </div>
-      <% end %>
+  <% @seichis.each do |seichi| %>
+    <%= link_to seichi.title, seichi_path(seichi.id) %>
+  <% end %>
+  <div class="favorite-mypage">
+    <p class="myfavorite">お気に入り登録の一覧</p>
+    <% @favorites.each do |favorite| %>
+      <%= link_to favorite.seichi.title, seichi_path(favorite.seichi_id)  %>
     <% end %>
+  </div>
   <div>
     <%= link_to 'トップページに戻る', root_path %>
   </div>

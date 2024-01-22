@@ -5,6 +5,7 @@ class Seichi < ApplicationRecord
   belongs_to :user
   has_one_attached :image
   has_many :comments
+  has_many :favorites, dependent: :destroy
 
   validates :title, presence: true
   validates :introduction, presence: true
@@ -15,6 +16,10 @@ class Seichi < ApplicationRecord
 
   def self.ransackable_attributes(auth_oject = nil)
     ["title", "introduction", "category_id", "prefecture_id"]
+  end
+
+  def favorited_by?(user)
+    favorites.where(user_id: user.id).exists?
   end
 
 end
