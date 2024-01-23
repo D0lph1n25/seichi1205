@@ -3,7 +3,7 @@ class SeichisController < ApplicationController
   before_action :seichi_find, only: [:show, :edit, :update, :destroy]
 
   def index
-    @seichis = Seichi.all
+    @seichis = Seichi.order(created_at: :desc).limit(10)
     @q = Seichi.ransack(params[:q])
   end
 

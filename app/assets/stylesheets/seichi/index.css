@@ -22,6 +22,10 @@
   text-align: center; /* テキストを中央揃え */
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8); /* テキストに影を追加 */
 }
+
+#overlay-text{
+  font-size: 50px;
+}
 /* 見出し */
 
 .seichi-index-page{
@@ -36,7 +40,7 @@
 
 .select-reason-contents>.title {
   text-align: center;
-  font-size: 3.5vh;
+  font-size: 24px;
   font-weight: bold;
   margin-bottom: 5vh;
   position: relative;
@@ -189,10 +193,10 @@
 
 /* 聖地一覧 */
 .seichi-itiran{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 50px 0 0  ;
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+
 }
 
 .seichi-index{
@@ -200,17 +204,15 @@
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
-  width: 100vw;
 }
 
-.seichi-link-index a {
-  text-decoration: none;
+.seichi-link-index{
+  font-size: 20px;
+  
 }
 
 /* 共通のスタイル */
-.seichi-index-content {
-  flex-wrap: wrap; /* もし横に余白を入れたくない場合はコメントアウト */
-}
+
 
 .seichi-lists{
   display: flex;
@@ -225,13 +227,12 @@
   margin: 10px; /* 余白を調整 */
   list-style: none;
   display: flex;
-  flex-wrap: wrap;
   justify-content: center;
 }
 
 /* タイトルと画像のスタイル */
 .seichi-link-index {
-  text-align: center; /* タイトルを中央に配置 */
+  text-align: left; /* タイトルを中央に配置 */
 }
 
 

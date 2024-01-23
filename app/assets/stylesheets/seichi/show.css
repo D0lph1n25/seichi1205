@@ -1,5 +1,10 @@
+.seichi-show-title{
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+}
+
 .seichi-show{
-  height: 100%;
   width: 100%;
   display: flex;
   justify-content: center;

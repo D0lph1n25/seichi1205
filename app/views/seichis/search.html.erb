@@ -1,3 +1,5 @@
+<%= render "shared/header" %>
+
 <div class="search-html">
   <div class="search-html-head">
     <%= search_form_for @q, url: search_seichis_path, html: {id: "detailed-search-form"} do |f| %>
@@ -22,7 +24,7 @@
       <%= link_to "トップページへ戻る", root_path %> 
     </div>
   </div> 
-  <h2 class="seichi-itiran">聖地一覧
+  <h2 class="seichi-itiran">聖地一覧(検索結果：<%= @seichis.count %>)
   </h2>
   <div class="seichi-index">
     <ul class="seichi-lists">
@@ -30,7 +32,10 @@
         <li class="seichi-list">
           <%= link_to seichi_path(seichi.id) do %> 
             <div class="seichi-link-index">
-              <%= seichi.title %>
+              作品名：<%= seichi.title %>
+            </div>
+            <div class="seichi-link-index">
+              都道府県：<%= seichi.prefecture[:name] %>
               <div class="seichi-image-content">
                 <%= image_tag seichi.image, class: "seichi-img" %>
               </div>

@@ -4,6 +4,7 @@
   justify-content: space-between;
   align-items: center;
   padding: 50px;
+  margin: 0 0 20px 0 ;
 }
 
 .left-header{
@@ -16,6 +17,7 @@
   text-decoration: none;
   color: black;
   font-weight: bold;
+  font-size: 30px;
 }
 
 .seichi-top:after{

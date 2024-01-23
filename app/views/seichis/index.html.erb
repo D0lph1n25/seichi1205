@@ -3,9 +3,10 @@
   <div class="image-index">
     <%= image_tag "27059533_m.jpg" , class:"head-image"%>
     <div class="overlay-text">
-      <h2 class="overlay-text-seichi" >聖地</h2>
+      <div class="overlay-text-seichi" ><span id="overlay-text">聖地</span><br>
       それは映画・小説・マンガ・アニメなどに縁の深い場所<br>
       日本中にある聖地を共有し、聖地巡礼制覇へ
+      </div>
     </div>
   </div>
 </div>
@@ -90,15 +91,18 @@
 
     
 
-    <h2 class="seichi-itiran">聖地一覧
-    </h2>
+    <div class="seichi-itiran">最新の投稿一覧
+    </div>
     <div class="seichi-index">
       <ul class="seichi-lists">
         <% @seichis.each do | seichi | %>
           <li class="seichi-list">
             <%= link_to seichi_path(seichi.id) do %> 
               <div class="seichi-link-index">
-                <%= seichi.title %>
+                作品名：<%= seichi.title %>
+              </div>
+              <div class="seichi-link-index">
+                都道府県：<%= seichi.prefecture[:name] %>
                 <div class="seichi-image-content">
                   <%= image_tag seichi.image, class: "seichi-img" %>
                 </div>
