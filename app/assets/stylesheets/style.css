@@ -1,13 +1,16 @@
 /***********新規登録画面******************/
-.background{
 
+.signup{
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
 }
 
 .contents {
   display: flex;
   justify-content: center;
   background-color: #cffadd;
-  height: calc(100vh - 100px);
+  
 }
 
 .container {
@@ -58,18 +61,24 @@
 }
 
 /************ログイン画面****************/
+.error-mes{
+  text-align: center;
+  font-size: 20px;
+  color: red;
+}
+
+.login {
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+
 .container-login{
   margin: 50px auto;
   width: 600px;
   background-color: #cffadd;
   padding: 20px;
-}
-
-
-
-.login {
-  width: 100px;
-  margin: 0 auto;
 }
 
 
