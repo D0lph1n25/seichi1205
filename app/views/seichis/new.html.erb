@@ -1,31 +1,37 @@
 <%= render "shared/header" %>
 
 <h2 class="seichi-show-title">聖地を投稿する</h2>
+
 <div class="seichi-new-contents">
   <div class="seichi-new-content">
-    <div id="mapragistration">
-    </div>
+    <div class="map-text">地図上で場所をクリックして、地点を登録！</div>
+
+    <script src="mapragistration.js"></script>
+    <div id="mapragistration"></div>
+    <script 
+    src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE_MAPS_API_KEY'] %>&libraries=places&callback=initMap">
+    </script>
     <div class="seichi-new-forms">
       <%= form_with(model: @seichi, local: true) do |form| %>
         <div class="new-form">
-          <%= form.label :title, '作品名' %>
-          <%= form.text_field :title, placeholder: "作品名" %>
+          <%= form.label :title, '作品名', class:"new-label" %>
+          <%= form.text_field :title, placeholder: "作品名", class:"new-form" %>
         </div>
         <div class="new-form">
-          <%= form.label :introduction, '場所の紹介'%>
-          <%= form.text_area :introduction, placeholder: "場所の紹介" %>
+          <%= form.label :introduction, '場所の紹介', class:"new-label"%>
+          <%= form.text_area :introduction, placeholder: "場所の紹介", class:"new-form" %>
         </div>
         <div class="new-form">
-          <%= form.label :category_id, 'カテゴリー' %>
-          <%= form.collection_select(:category_id, Category.all, :id, :name, {}, {class:"select-box", id:"seichi-category"}) %>
+          <%= form.label :category_id, 'カテゴリー' , class:"new-label"%>
+          <%= form.collection_select(:category_id, Category.all, :id, :name, {}, {class:"select-box"}) %>
         </div>
         <div class="new-form">
-          <%= form.label :prefecture_id, '都道府県'%>
-          <%= form.collection_select(:prefecture_id, Prefecture.all, :id, :name, {}, {class:"select-box", id:"seichi-prefecture"}) %>
+          <%= form.label :prefecture_id, '都道府県', class:"new-label"%>
+          <%= form.collection_select(:prefecture_id, Prefecture.all, :id, :name, {}, {class:"select-box"}) %>
         </div>
         <div class="new-form">
-          <%= form.label :addresses, '都道府県以下の住所'%>
-          <%= form.text_field :addresses, placeholder: "都道府県以下の住所"%>
+          <%= form.label :addresses, '都道府県以下の住所', class:"new-label"%>
+          <%= form.text_field :addresses, placeholder: "都道府県以下の住所", class:"new-form"%>
         </div>
         <%= form.hidden_field :latitude, id: "latitude" %>
         <%= form.hidden_field :longitude, id: "longitude" %>
@@ -37,6 +43,9 @@
         </div>
       <% end %>
     </div>
+
+
+
   </div>
 </div>
 <%= link_to "トップページへ戻る", root_path %> 

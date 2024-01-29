@@ -2,6 +2,20 @@
   text-align: center;
   font-size: 24px;
   font-weight: bold;
+  margin:  0 auto 30px;
+}
+
+.show-edit-btn{
+  text-decoration: none;
+  display: inline-block;
+  padding: 0.5em 1em;
+  margin: 0 10px;
+  text-decoration: none;
+  background:  rgb(32, 145, 69);/*ボタン色*/
+  color: #FFF;
+  border-bottom: solid 4px #627295;
+  border-radius: 3px;
+  font-size: 15px;
 }
 
 .seichi-show{
@@ -11,12 +25,97 @@
 }
 
 .show-content{
-  height: 90vh;
-  width: 80vw;
+  text-align: center;
 }
+
+.show-lists{
+  margin: 20px auto;
+}
+
+.show-list{
+  display: flex;
+  margin: 0 0 10px;
+
+}
+
+.show-list-title{
+  width: 350px;
+  padding: 0 20px 0 250px;
+  text-align: left;
+
+}
+
+.show-form{
+  width: 350px;
+  text-align: left;
+}
+
 
 .seichi-box-img{
   width: 400px;
   height: 400px;
+  margin: 0 auto 10px;
 }
 
+
+
+
+.new-form-image{
+  text-align: center;
+  margin: 0 auto 10px;
+}
+
+.form-btn{
+  text-align: center;
+  margin: 0 auto 50px;
+}
+
+.map-text{
+  text-align: center;
+}
+
+.commentforms{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+
+.comment-form{
+  width: 400px;
+  height: 100px;
+  display: block;
+}
+
+.submitbtn{
+  text-decoration: none;
+  display: inline-block;
+  padding: 0.5em 1em;
+  margin: 20px auto;
+  text-decoration: none;
+  background:  rgb(230, 90, 90);/*ボタン色*/
+  color: #FFF;
+  border-bottom: solid 4px #627295;
+  border-radius: 3px;
+  font-size: 15px;
+}
+
+.favoritetopform{
+  display: flex;
+  justify-content: space-around;
+  margin: 20px auto;
+}
+
+.topbtn{
+  text-decoration: none;
+  display: inline-block;
+  padding: 0.5em 1em;
+  margin: 0 10px;
+  text-decoration: none;
+  background:  rgb(230, 90, 90);/*ボタン色*/
+  color: #FFF;
+  border-bottom: solid 4px #627295;
+  border-radius: 3px;
+  font-size: 15px;
+}

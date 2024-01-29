@@ -217,15 +217,11 @@
 .seichi-lists{
   display: flex;
   flex-wrap: wrap;
-  
+  width: 80vw;
 }
 
 .seichi-list {
-  
-  width: calc(33.33% - 20px); /* 列数に応じて調整（例では3列） */
-  margin: 10px 10px 30px; /* 余白を調整 */
-  display: flex;
-  justify-content: center;
+  padding: 1vw;
 }
 
 /* タイトルと画像のスタイル */

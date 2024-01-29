@@ -1,3 +1,32 @@
 .seichi-new-contents{
+  display: flex;
+  justify-content: space-around;
+}
+
+.new-form{
+  display: flex;
+  margin: 0 auto 10px;
+}
+
+.new-label{
+  width: 300px;
+}
+
+.new-form,
+.select-box{
+  width: 400px;
+}
+
+.new-form-image{
+  text-align: center;
+  margin: 0 auto 10px;
+}
+
+.form-btn{
+  text-align: center;
+  margin: 0 auto 50px;
+}
+
+.map-text{
   text-align: center;
 }
