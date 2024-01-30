@@ -1,17 +1,30 @@
 <%= render "shared/header" %>
-<div class="mypage">
-  <p><%= @nickname %>さんの投稿一覧</p>
-  <% @seichis.each do |seichi| %>
-    <%= link_to seichi.title, seichi_path(seichi.id) %>
-  <% end %>
-  <div class="favorite-mypage">
-    <p class="myfavorite">お気に入り登録の一覧</p>
-    <% @favorites.each do |favorite| %>
-      <%= link_to favorite.seichi.title, seichi_path(favorite.seichi_id)  %>
-    <% end %>
-  </div>
-  <div>
-    <%= link_to 'トップページに戻る', root_path %>
-    <%= link_to '設定', edit_user_registration_path %>
+<div class="mypages">
+  <div class="mypage">
+    <div class="mypagetext">
+      マイページ
+    </div>
+    <div class="my-indexs">
+      <p class="myindextext"><%= @nickname %>さんの投稿一覧</p>
+      <div class="my-index">
+        <% @seichis.each do |seichi| %>
+          <%= link_to seichi.title, seichi_path(seichi.id), class:"myindexseichi" %>
+        <% end %>
+      </div>
+    </div>
+    <div class="my-favorites">
+      <p class="myfavoritetext">お気に入り登録の一覧</p>
+      <div class="my-favorite">
+        <% @favorites.each do |favorite| %>
+          <%= link_to favorite.seichi.title, seichi_path(favorite.seichi_id), class:"myfavoriteseichi"  %>
+        <% end %>
+      </div>
+    </div>
+    <div class="topeditbtns">
+      <div class="topeditbtn">
+        <%= link_to 'トップページ', root_path ,class:"topbtn" %>
+        <%= link_to '設定', edit_user_registration_path, class:"editbtn" %>
+      </div>
+    </div>
   </div>
 </div>

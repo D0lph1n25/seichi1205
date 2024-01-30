@@ -1,0 +1,56 @@
+.mypages{
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.mypagetext{
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+  margin:  0 auto 30px;
+}
+
+.my-indexs{
+  margin: 10px auto 50px;
+}
+
+.myindextext{
+  margin: 20px auto;
+}
+
+.myindexseichi{
+  display: block;
+}
+
+.my-favorites{
+  margin: 0 auto 50px;
+}
+
+.myfavoritetext{
+  margin: 20px auto;
+}
+
+.myfavoriteseichi{
+  display: block;
+  margin: 0 auto 10px;
+}
+
+.topeditbtn{
+  display: flex;
+  justify-content: space-between;
+  margin: 20px auto;
+}
+
+.editbtn{
+  text-decoration: none;
+  display: inline-block;
+  padding: 0.5em 1em;
+  margin: 0 10px;
+  text-decoration: none;
+  background: #cffadd;/*ボタン色*/
+  color:black;
+  border-bottom: solid 4px #627295;
+  border-radius: 3px;
+  font-size: 15px;
+}
