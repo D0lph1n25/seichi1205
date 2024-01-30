@@ -13,6 +13,9 @@
     </script>
     <div class="seichi-new-forms">
       <%= form_with(model: @seichi, local: true) do |form| %>
+
+      <%= render 'shared/error_messages', model: form.object %>
+
         <div class="new-form">
           <%= form.label :title, '作品名', class:"new-label" %>
           <%= form.text_field :title, placeholder: "作品名", class:"new-form" %>
@@ -39,13 +42,12 @@
           写真を選択してください： <%= form.file_field :image, id:"seichi-image" %>
         </div>
         <div class="form-btn">
-          <%= form.submit "SEND" %>
+          <%= form.submit "投稿" , class:"submitbtn" %>
         </div>
       <% end %>
     </div>
-
-
-
+    <div class="topbtns">
+      <%= link_to "トップページへ", root_path , class:"topbtn"%> 
+    </div>
   </div>
 </div>
-<%= link_to "トップページへ戻る", root_path %> 

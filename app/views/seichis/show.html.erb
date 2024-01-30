@@ -13,7 +13,7 @@
     <ul class="show-lists">
       <li class="show-list">
         <div class="show-list-title">投稿者</div>
-        <span class="show-form"><%= link_to @seichi.user.nickname, user_path(@seichi.user_id) %></span>
+        <span class="show-form"><%= link_to @seichi.user.nickname, user_path(@seichi.user) %></span>
       </li>
       <li class="show-list">
         <div class="show-list-title">作品名</div>
@@ -51,7 +51,7 @@
       <% if user_signed_in? %>
         <%= form_with(model: [@seichi, @comment], local: true) do |form| %>
           <%= form.text_area :text, placeholder: "コメントする", rows: "2", class:"comment-form" %>
-          <%= form.submit "送信" , class:"submitbtn"%>
+          <%= form.submit "投稿" , class:"submitbtn"%>
         <% end %>
       <% else %>
         <strong><p>※※※ コメントの投稿には新規登録/ログインが必要です ※※※</p></strong>

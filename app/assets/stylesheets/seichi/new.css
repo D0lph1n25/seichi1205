@@ -4,7 +4,6 @@
 }
 
 .new-form{
-  display: flex;
   margin: 0 auto 10px;
 }
 
@@ -29,4 +28,9 @@
 
 .map-text{
   text-align: center;
+}
+
+.topbtns{
+  text-align: right;
+  margin: 0 0 30px;
 }
