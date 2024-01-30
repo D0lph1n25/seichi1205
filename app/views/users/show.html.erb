@@ -1,11 +1,15 @@
 <%= render "shared/header" %>
 <div class="mypages">
   <div class="mypage">
-    <div class="mypagetext">
-      マイページ
-    </div>
+    <% if current_user.id == @user.id%>
+      <div class="mypagetext">
+        マイページ
+      </div>
+    <% else %>
+      <div class="mypagetext"><%= @nickname %>さんのページ</div>
+    <% end %>
     <div class="my-indexs">
-      <p class="myindextext"><%= @nickname %>さんの投稿一覧</p>
+      <p class="myindextext">投稿一覧</p>
       <div class="my-index">
         <% @seichis.each do |seichi| %>
           <%= link_to seichi.title, seichi_path(seichi.id), class:"myindexseichi" %>
@@ -23,7 +27,9 @@
     <div class="topeditbtns">
       <div class="topeditbtn">
         <%= link_to 'トップページ', root_path ,class:"topbtn" %>
-        <%= link_to '設定', edit_user_registration_path, class:"editbtn" %>
+        <% if current_user.id == @user.id %>
+          <%= link_to '設定', edit_user_registration_path, class:"editbtn" %>
+        <% end %>
       </div>
     </div>
   </div>
