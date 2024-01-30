@@ -21,28 +21,34 @@
       <%= f.submit '検索' %>
     <% end %>
     <div class="to-top">
-      <%= link_to "トップページへ戻る", root_path %> 
+      <%= link_to "トップページへ戻る", root_path, class:"topbtn" %> 
     </div>
   </div> 
   <h2 class="seichi-itiran">聖地一覧(検索結果：<%= @seichis.count %>)
   </h2>
   <div class="seichi-index">
-    <ul class="seichi-lists">
-      <% @seichis.each do | seichi | %>
-        <li class="seichi-list">
-          <%= link_to seichi_path(seichi.id) do %> 
-            <div class="seichi-link-index">
-              作品名：<%= seichi.title %>
-            </div>
-            <div class="seichi-link-index">
-              都道府県：<%= seichi.prefecture[:name] %>
-              <div class="seichi-image-content">
-                <%= image_tag seichi.image, class: "seichi-img" %>
+    <% if @seichis.any? %>
+      <ul class="seichi-lists">
+        <% @seichis.each do | seichi | %>
+          <li class="seichi-list">
+            <%= link_to seichi_path(seichi.id) do %> 
+              <div class="seichi-link-index">
+                作品名：<%= seichi.title %>
               </div>
-            </div>
-          <% end %>
-        </li>
-      <% end %>
-    </ul>
+              <div class="seichi-link-index">
+                都道府県：<%= seichi.prefecture[:name] %>
+                <div class="seichi-image-content">
+                  <%= image_tag seichi.image, class: "seichi-img" %>
+                </div>
+              </div>
+            <% end %>
+          </li>
+        <% end %>
+      </ul>
+    <% else %>
+      <div class="search-nil">
+        見つかりませんでした。他の条件をお試しください。
+      </div>
+    <% end %>
   </div>
 </div>

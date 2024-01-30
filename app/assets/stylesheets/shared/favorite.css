@@ -1,0 +1,12 @@
+.seichi-favorites{
+  text-decoration: none;
+  display: inline-block;
+  padding: 0.5em 1em;
+  margin: 0 10px;
+  text-decoration: none;
+  background:  rgb(255, 230, 0);/*ボタン色*/
+  color: black;
+  border-bottom: solid 4px #627295;
+  border-radius: 3px;
+  font-size: 15px;
+}

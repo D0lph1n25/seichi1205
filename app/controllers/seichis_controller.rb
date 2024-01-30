@@ -25,8 +25,6 @@ class SeichisController < ApplicationController
     @comment = Comment.new
     @comments = @seichi.comments.includes(:user)
     @favorite = Favorite.new
-
-
   end
 
   def edit

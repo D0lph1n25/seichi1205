@@ -1,24 +1,35 @@
+
+
 <%= render "shared/header" %>
 
 <h2 class="seichi-show-title">聖地詳細</h2>
 
 <div class="seichi-show">
   <div class="show-content">
+    <% if user_signed_in? && current_user.id == @seichi.user_id %>
+      <%= link_to "編集する", edit_seichi_path(@seichi.id), class:"show-edit-btn" %>
+      <%= link_to "削除する", seichi_path(@seichi.id), data: { turbo_method: :delete },class:"show-edit-btn" %>
+    <% end %>
     <ul class="show-lists">
       <li class="show-list">
-        投稿者：<%= link_to @seichi.user.nickname, user_path(@seichi.user_id) %>
+        <div class="show-list-title">投稿者</div>
+        <span class="show-form"><%= link_to @seichi.user.nickname, user_path(@seichi.user) %></span>
       </li>
       <li class="show-list">
-        作品名：<%= @seichi.title %>
+        <div class="show-list-title">作品名</div>
+        <span class="show-form"><%= @seichi.title %></span>
       </li>
       <li class="show-list">
-        聖地の紹介：<%= @seichi.introduction %>
+        <div class="show-list-title">聖地の紹介</div>
+        <span class="show-form"><%= @seichi.introduction %></span>
       </li>
       <li class="show-list">
-        作品の分類：<%= @seichi.category[:name] %>
+        <div class="show-list-title">作品の分類</div>
+        <span class="show-form"><%= @seichi.category[:name] %></span>
       </li>
       <li class="show-list">
-        聖地の住所：<%= @seichi.prefecture[:name] %><%= @seichi.addresses %>
+        <div class="show-list-title">聖地の住所</div>
+        <span class="show-form"><%= @seichi.prefecture[:name] %><%= @seichi.addresses %></span>
       </li>
       <span id="latitude-show" style="display: none;">
         <%= @seichi.latitude %>
@@ -26,17 +37,21 @@
       <span id="longitude-show" style="display: none;">
         <%= @seichi.longitude%>
       </span>
-     </ul>
+    </ul>
     <%= image_tag @seichi.image ,class:"seichi-box-img" %>
    
     
     <div id="map-show"></div>
+    <script defer
+    src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE_MAPS_API_KEY'] %>&libraries=places&callback=initMap">
+    </script>
     
-    <div class="commentform">
+    
+    <div class="commentforms">
       <% if user_signed_in? %>
         <%= form_with(model: [@seichi, @comment], local: true) do |form| %>
-          <%= form.text_area :text, placeholder: "コメントする", rows: "2" %>
-          <%= form.submit "SEND" %>
+          <%= form.text_area :text, placeholder: "コメントする", rows: "2", class:"comment-form" %>
+          <%= form.submit "投稿" , class:"submitbtn"%>
         <% end %>
       <% else %>
         <strong><p>※※※ コメントの投稿には新規登録/ログインが必要です ※※※</p></strong>
@@ -53,16 +68,14 @@
           <%= link_to "削除する", seichi_comment_path(comment.seichi_id, comment.id), data: { turbo_method: :delete } %>
         <% end %>
       <% end %>
+
+    </div>
+    <div class="favoritetopform">
       <%# お気に入り機能実装 %>
       <%= render partial: "shared/favorite", locals: { seichi: @seichi } %>
       <%# お気に入り機能実装 %>
-
-    </div>
-    <% if user_signed_in? && current_user.id == @seichi.user_id %>
-      <%= link_to "編集する", edit_seichi_path(@seichi.id) %>
-      <%= link_to "削除する", seichi_path(@seichi.id), data: { turbo_method: :delete } %>
-    <% end %>
-    <%= link_to "トップページへ戻る", root_path %>  
+      <%= link_to "トップページへ", root_path , class:"topbtn"%> 
+    </div> 
   </div>
 </div>
 

@@ -1,14 +1,53 @@
-<h3>投稿する</h3>
-<%= link_to "トップページへ戻る", root_path %> 
-<div id="mapragistration"></div>
-  <%= form_with(model: @seichi, local: true) do |form| %>
-    <%= form.text_field :title, placeholder: "作品名" %>
-    <%= form.text_area :introduction, placeholder: "場所の紹介" %>
-    <%= form.collection_select(:category_id, Category.all, :id, :name, {}, {class:"select-box", id:"seichi-category"}) %>
-    <%= form.collection_select(:prefecture_id, Prefecture.all, :id, :name, {}, {class:"select-box", id:"seichi-prefecture"}) %>
-    <%= form.text_field :addresses, placeholder: "都道府県以下の住所"%>
-    <%= form.hidden_field :latitude, id: "latitude" %>
-    <%= form.hidden_field :longitude, id: "longitude" %>
-    <%= form.file_field :image, id:"seichi-image" %>
-    <%= form.submit "SEND" %>
-  <% end %>
+<%= render "shared/header" %>
+
+<h2 class="seichi-show-title">聖地を投稿する</h2>
+
+<div class="seichi-new-contents">
+  <div class="seichi-new-content">
+    <div class="map-text">地図上で場所をクリックして、地点を登録！</div>
+
+    <script src="mapragistration.js"></script>
+    <div id="mapragistration"></div>
+    <script 
+    src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE_MAPS_API_KEY'] %>&libraries=places&callback=initMap">
+    </script>
+    <div class="seichi-new-forms">
+      <%= form_with(model: @seichi, local: true) do |form| %>
+
+      <%= render 'shared/error_messages', model: form.object %>
+
+        <div class="new-form">
+          <%= form.label :title, '作品名', class:"new-label" %>
+          <%= form.text_field :title, placeholder: "作品名", class:"new-form" %>
+        </div>
+        <div class="new-form">
+          <%= form.label :introduction, '場所の紹介', class:"new-label"%>
+          <%= form.text_area :introduction, placeholder: "場所の紹介", class:"new-form" %>
+        </div>
+        <div class="new-form">
+          <%= form.label :category_id, 'カテゴリー' , class:"new-label"%>
+          <%= form.collection_select(:category_id, Category.all, :id, :name, {}, {class:"select-box"}) %>
+        </div>
+        <div class="new-form">
+          <%= form.label :prefecture_id, '都道府県', class:"new-label"%>
+          <%= form.collection_select(:prefecture_id, Prefecture.all, :id, :name, {}, {class:"select-box"}) %>
+        </div>
+        <div class="new-form">
+          <%= form.label :addresses, '都道府県以下の住所', class:"new-label"%>
+          <%= form.text_field :addresses, placeholder: "都道府県以下の住所", class:"new-form"%>
+        </div>
+        <%= form.hidden_field :latitude, id: "latitude" %>
+        <%= form.hidden_field :longitude, id: "longitude" %>
+        <div class="new-form-image">
+          写真を選択してください： <%= form.file_field :image, id:"seichi-image" %>
+        </div>
+        <div class="form-btn">
+          <%= form.submit "投稿" , class:"submitbtn" %>
+        </div>
+      <% end %>
+    </div>
+    <div class="topbtns">
+      <%= link_to "トップページへ", root_path , class:"topbtn"%> 
+    </div>
+  </div>
+</div>
