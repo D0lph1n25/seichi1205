@@ -9,7 +9,7 @@
     <script src="mapragistration.js"></script>
     <div id="mapragistration"></div>
     <script 
-    src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE_MAPS_API_KEY'] %>&libraries=places&callback=initMap">
+    src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE_MAPS_API_KEY'] %>&libraries=places&callback=initMap" defer>
     </script>
     <div class="seichi-new-forms">
       <%= form_with(model: @seichi, local: true) do |form| %>
