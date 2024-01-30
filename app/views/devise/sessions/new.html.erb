@@ -11,12 +11,12 @@
       <%= render "devise/shared/error_messages", resource: resource %>
     
       <div class="field">
-        <%= f.label :email %><br />
+        <%= f.label :email, "Eメール" %><br />
         <%= f.email_field :email, autofocus: true, class:'sign_form' %>
       </div>
 
       <div class="field">
-        <%= f.label :password %><br />
+        <%= f.label :password ,"パスワード"%><br />
         <%= f.password_field :password, autocomplete: "off", class:'sign_form' %>
       </div>
 
