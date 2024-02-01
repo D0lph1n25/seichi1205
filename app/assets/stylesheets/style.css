@@ -17,8 +17,7 @@
   margin: 50px auto;
   padding: 20px;
 }
-:password 
-:password_confirmation
+
 
 .signup {
   width: 100px;
@@ -53,11 +52,13 @@
 .send {
   height:50px;
   width: 200px;
-  border: 1px solid white;
-  color: white;
+  color: #FFF;
+  border-bottom: solid 4px #627295;
   background-color: rgb(230, 90, 90);
   display: block;
   margin: 50px auto;
+  border-radius: 3px;
+  font-size: 15px;
 }
 
 /************ログイン画面****************/
