@@ -36,7 +36,11 @@ https://docs.google.com/spreadsheets/d/1wUO91cHNPPsJqfudkRIaTWHNiMb6HMaomUh4lAJe
 
 
 # 実装した機能についての画像やGIF及びその説明
+[![Image from Gyazo](https://i.gyazo.com/2082e04168f95511a123b71e16147de3.gif)](https://gyazo.com/2082e04168f95511a123b71e16147de3)<br>
+聖地を投稿する際にグーグルマップで地点をクリックすることで緯度及び経度が登録されます。<br>
 
+[![Image from Gyazo](https://i.gyazo.com/2fdcc9f270a804d439782e1d53c93b11.gif)](https://gyazo.com/2fdcc9f270a804d439782e1d53c93b11)<br>
+聖地詳細ページにあるグーグルマップで場所を確認できます。
 
 # 実装予定の機能
 今後は地図を使って聖地を検索できるようにするつもりです。
