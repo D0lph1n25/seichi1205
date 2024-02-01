@@ -51,26 +51,26 @@ https://docs.google.com/spreadsheets/d/1wUO91cHNPPsJqfudkRIaTWHNiMb6HMaomUh4lAJe
 
 
 # 開発環境
-・ フロントエンド
-     HTML,CSS,JavaScript
-・ バックエンド
-     Ruby,Ruby on Rails
-・ インフラ
-     Windows,Ubuntu
-・ テキストエディタ
-     Visual Studio Code
-・ タスク管理
+・ フロントエンド<br>
+     HTML,CSS,JavaScript<br>
+・ バックエンド<br>
+     Ruby,Ruby on Rails<br>
+・ インフラ<br>
+     Windows,Ubuntu<br>
+・ テキストエディタ<br>
+     Visual Studio Code<br>
+・ タスク管理<br>
      Git, GitHub
 
 
 # ローカルでの作動方法
-以下のコマンドを順に実行
-% git clone https://github.com/D0lph1n25/seichi1205.git
-% cd D0lph1n25/seichi1205.git
-% bundle install
+以下のコマンドを順に実行<br>
+% git clone https://github.com/D0lph1n25/seichi1205.git<br>
+% cd D0lph1n25/seichi1205.git<br>
+% bundle install<br>
 % yarn install
 
 
 # 工夫したポイント
-GoogleMapsAPIを使用し、地図をクリックして地点を登録できるようにしました。
+GoogleMapsAPIを使用し、地図をクリックして地点を登録できるようにしました。<br>
 ボタンに色を付けて直感的に操作できるようにしました。また、役割ごとにボタンの色を変えてわかりやすくしました。
