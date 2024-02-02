@@ -15,6 +15,9 @@ RSpec.describe Seichi, type: :model do
 
     context '聖地が投稿できないとき' do
       it '作品名が空では投稿できない' do
+        @seichi.title = ""
+        @seichi.valid?
+        expect(@seichi.errors.full_messages).to include("作品名を入力してください")
       end
       it '場所の紹介が空では投稿できない' do
       end
