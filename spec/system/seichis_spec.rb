@@ -6,7 +6,7 @@ def basic_pass(path)
   visit "http://#{username}:#{password}@#{Capybara.current_session.server.host}:#{Capybara.current_session.server.port}#{path}"
 end
 
-RSpec.describe "Seichis", type: :system do
+RSpec.describe "聖地投稿", type: :system do
   before do
     @user = FactoryBot.create(:user)
     @seichi_title = Faker::Lorem.sentence
@@ -49,4 +49,35 @@ RSpec.describe "Seichis", type: :system do
     end
   end
 
+  context '聖地が投稿できないとき' do
+    it 'ログインしていないと聖地投稿ページに移動できない' do
+      basic_pass root_path
+      # トップページに移動する
+      visit root_path
+      # 聖地投稿ページへのボタンをクリックする
+      find('a[id="seichinewbot"]').click
+      # ログインページであることを確認する
+      expect(page).to have_current_path(new_user_session_path)
+    end
+  end
+end
+
+RSpec.describe "聖地編集", type: :system do
+  before do
+    @seichi1 = FactoryBot.create(:seichi)
+    @seichi2 = FactoryBot.create(:seichi)
+  end
+
+  context '聖地編集ができるとき' do
+    it 'ログインしたユーザーは自分で投稿した聖地の編集ができる' do
+      # 聖地1を投稿したユーザーでログインする
+      # 聖地1の詳細ページに編集ページへ移動するボタンがあることを確認する
+      # 編集ページへ移動する
+      # すでに投稿済みの内容がフォーム（地図及び写真以外）に入っていることを確認する
+      # 投稿内容を編集する
+    end
+  end
+  context '聖地編集ができないとき' do
+  end
+  
 end

@@ -6,6 +6,7 @@
   <div class="seichi-new-content">
     <div class="map-text">地点修正する際は、再度地図上で場所をクリック！</div>
 
+    <div id="mapragistration-edit"></div>
     <script>
       let map;
       let markers = [];
@@ -52,9 +53,8 @@
           markers = [];
       }
 
-      window.addEventListener('turbo:load',initMap)
+      document.addEventListener('DOMContentLoaded', initMap);      
     </script>
-    <div id="mapragistration-edit"></div>
     <script 
     src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE_MAPS_API_KEY'] %>&libraries=places&callback=initMap">
     </script>
@@ -84,10 +84,10 @@
           <%= form.label :addresses, '都道府県以下の住所', class:"new-label"%>
           <%= form.text_field :addresses, placeholder: "都道府県以下の住所", class:"new-form"%>
         </div>
-        <%= form.hidden_field :latitude, id: "latitude" %>
-        <%= form.hidden_field :longitude, id: "longitude" %>
+        <%= form.hidden_field :latitude, id: "latitude-edit" %>
+        <%= form.hidden_field :longitude, id: "longitude-edit" %>
         <div class="new-form-image">
-          写真を変更する場合は再度選択： <%= form.file_field :image, id:"seichi-image" %>
+          写真を変更する場合は再度選択： <%= form.file_field :image, id:"seichi-image-edit" %>
         </div>
         <div class="form-btn">
           <%= form.submit "投稿" , class:"submitbtn" %>
