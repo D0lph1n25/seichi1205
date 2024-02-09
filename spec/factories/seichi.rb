@@ -2,8 +2,8 @@ FactoryBot.define do
   factory :seichi do
     title            {'title'}
     introduction     {'introduction'}
-    category_id      {'2'}
-    prefecture_id    {'2'}
+    category_id      { '2' }
+    prefecture_id    { '3' }
     addresses        { Faker::Address.city }
     latitude         { Faker::Address.latitude }
     longitude        { Faker::Address.longitude }

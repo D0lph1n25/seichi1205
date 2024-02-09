@@ -72,14 +72,44 @@ RSpec.describe "聖地編集", type: :system do
     it 'ログインしたユーザーは自分で投稿した聖地の編集ができる' do
       # 聖地1を投稿したユーザーでログインする
       visit new_user_session_path
-      fill_in ''
-      # 聖地1の詳細ページに編集ページへ移動するボタンがあることを確認する
-      # 編集ページへ移動する
+      fill_in 'Eメール', with: @seichi1.user.email
+      fill_in 'パスワード', with: @seichi1.user.password
+      find('input[name="commit"]').click
+      expect(page).to have_current_path(root_path)
+      # 聖地1の投稿を確認する
+      expect(
+        all('.seichi-list')[1]
+      ).to have_link '作品名', href: seichi_path(@seichi1)
+      # 聖地1の詳細ページに移動する
+      visit seichi_path(@seichi1)
+      # 聖地1の詳細ページに編集ページへ移動するボタンを確認する
+      expect(page).to have_content('編集する')
+      # 編集ページへのボタンをクリックして編集ページへ移動する
+      click_link "編集する"
+      expect(page).to have_current_path(edit_seichi_path(@seichi1))
       # すでに投稿済みの内容がフォーム（地図及び写真以外）に入っていることを確認する
+      expect(page).to have_field('seichi_title', with: @seichi1.title)
+      expect(page).to have_field('seichi_introduction', with: @seichi1.introduction)
+      expect(page).to have_select('seichi[category_id]', selected: '漫画')
+      expect(page).to have_select('都道府県', selected: '青森県' )
+      expect(page).to have_field('seichi_addresses', with: @seichi1.addresses)
       # 投稿内容を編集する
+      fill_in 'seichi_title', with: '#{@seichi1.title}+編集したタイトル'
+      fill_in 'seichi_introduction', with: '{@seichi1.introduction}+編集した紹介'
+      select 'アニメ', from: 'seichi_category_id'
+      select '北海道', from: 'seichi_prefecture_id'
+      fill_in 'seichi_addresses', with: '#{@seichi1.addresses}+編集した住所'
       # 投稿してもSeichiモデルのカウントは変わらないことを確認する
-      # トップページには先ほど編集した内容の聖地が存在することを確認する（画像）
-      # トップページには先ほど編集した内容の聖地が存在することを確認する（テキスト）
+      expect{
+        find('input[name="commit"]').click
+        sleep 1
+      }.to change {Seichi.count }.by(0)
+      # トップページに移動する
+      find('a[class="topbtn"]').click
+      expect(page).to have_current_path(root_path)
+      # トップページには先ほど編集した内容の聖地が存在することを確認する
+      expect(page).to have_content('#{@seichi1.title}+編集したタイトル')
+      expect(page).to have_content("北海道")
     end
   end
   context '聖地編集ができないとき' do
