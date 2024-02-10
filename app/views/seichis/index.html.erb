@@ -66,12 +66,13 @@
       <div class="seichi-new-bot">
         <%= link_to '聖地を投稿する', new_seichi_path, id:"seichinewbot"  %>
       </div>
+      <%# 検索フォーム %>
       <div class="seichi-index-search">
         <%= search_form_for @q, url: search_seichis_path, html: {id: "detailed-search-form"} do |f| %>
           <div class="search-field">
             <%= f.label :title_cont, '作品名' %>
             <br>
-            <%= f.text_field :title_cont, placeholder: '作品名' %>
+            <%= f.text_field :title_cont, placeholder: '作品名' , class:"search-field-form" %>
           </div>
           <div class="search-field">
             <%= f.label :category_id_eq, 'カテゴリ' %>
@@ -86,6 +87,7 @@
           <%= f.submit '検索' %>
         <% end %>
       </div>
+      <%# 検索フォーム %>
     </div>
     
 

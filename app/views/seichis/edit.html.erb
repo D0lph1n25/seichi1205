@@ -6,18 +6,22 @@
   <div class="seichi-new-content">
     <div class="map-text">地点修正する際は、再度地図上で場所をクリック！</div>
 
+    <div id="mapragistration-edit"></div>
+    <script async
+    src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE_MAPS_API_KEY'] %>&libraries=places&callback=initMap">
+    </script>
     <script>
-      let map;
-      let markers = [];
+      let editmap;
+      let editmarkers = [];
 
       function initMap() {
-          map = new google.maps.Map(document.getElementById("mapragistration-edit"), {
+          editmap = new google.maps.Map(document.getElementById("mapragistration-edit"), {
               center: { lat:  34.7024, lng: 135.4959 },
               zoom: 13,
           });
 
           // クリックしたときのイベントを追加
-          map.addListener('click', function(event) {
+          editmap.addListener('click', function(event) {
               placeMarker(event.latLng);
           });
       }
@@ -28,13 +32,13 @@
           clearMarkers();
 
           // 新しいマーカーを作成
-          const marker = new google.maps.Marker({
+          const editmarker = new google.maps.Marker({
               position: location,
-              map: map
+              map: editmap
           });
 
           // マーカーを配列に追加
-          markers.push(marker);
+          editmarkers.push(editmarker);
 
           document.getElementById('latitude-edit').value = location.lat();
           document.getElementById('longitude-edit').value = location.lng();
@@ -44,20 +48,17 @@
 
       function clearMarkers() {
           // 既存のマーカーを地図から削除
-          markers.forEach(marker => {
-              marker.setMap(null);
+          editmarkers.forEach(editmarker => {
+              editmarker.setMap(null);
           });
 
           // マーカー配列をクリア
-          markers = [];
+          editmarkers = [];
       }
 
-      window.addEventListener('turbo:load',initMap)
+      document.addEventListener('DOMContentLoaded', initMap);      
     </script>
-    <div id="mapragistration-edit"></div>
-    <script 
-    src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE_MAPS_API_KEY'] %>&libraries=places&callback=initMap">
-    </script>
+
     
     <div class="seichi-new-forms">
       <%= form_with(model: @seichi, local: true) do |form| %>
@@ -84,10 +85,10 @@
           <%= form.label :addresses, '都道府県以下の住所', class:"new-label"%>
           <%= form.text_field :addresses, placeholder: "都道府県以下の住所", class:"new-form"%>
         </div>
-        <%= form.hidden_field :latitude, id: "latitude" %>
-        <%= form.hidden_field :longitude, id: "longitude" %>
+        <%= form.hidden_field :latitude, id: "latitude-edit" %>
+        <%= form.hidden_field :longitude, id: "longitude-edit" %>
         <div class="new-form-image">
-          写真を変更する場合は再度選択： <%= form.file_field :image, id:"seichi-image" %>
+          写真を変更する場合は再度選択： <%= form.file_field :image, id:"seichi-image-edit" %>
         </div>
         <div class="form-btn">
           <%= form.submit "投稿" , class:"submitbtn" %>

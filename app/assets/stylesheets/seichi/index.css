@@ -147,6 +147,10 @@
   margin: 0 10px;
 }
 
+.search-field-form{
+  padding: 5px;
+}
+
 .seichi-index-searchnew-bot{
   display: flex;
   justify-content: space-around;
