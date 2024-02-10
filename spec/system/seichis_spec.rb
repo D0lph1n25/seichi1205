@@ -7,6 +7,7 @@ def basic_pass(path)
 end
 
 RSpec.describe "聖地投稿", type: :system do
+
   before do
     @user = FactoryBot.create(:user)
     @seichi_title = Faker::Lorem.sentence
@@ -14,7 +15,9 @@ RSpec.describe "聖地投稿", type: :system do
     @seichi_addresses = Faker::Lorem.sentence
     @seichi_image_path = Rails.root.join('app/assets/images/travel_people_seichi_junrei.png')  
   end
+
   context '聖地が投稿できるとき' do
+
     it 'ログインしたユーザーは新規投稿ができる' do
       basic_pass root_path
       # ログインする
@@ -47,9 +50,11 @@ RSpec.describe "聖地投稿", type: :system do
       expect(page).to have_content(@seichi_title)
       expect(page).to have_content("青森県")
     end
+
   end
 
   context '聖地が投稿できないとき' do
+
     it 'ログインしていないと聖地投稿ページに移動できない' do
       basic_pass root_path
       # トップページに移動する
@@ -59,16 +64,19 @@ RSpec.describe "聖地投稿", type: :system do
       # ログインページであることを確認する
       expect(page).to have_current_path(new_user_session_path)
     end
+
   end
 end
 
 RSpec.describe "聖地編集", type: :system do
+
   before do
     @seichi1 = FactoryBot.create(:seichi)
     @seichi2 = FactoryBot.create(:seichi)
   end
 
   context '聖地編集ができるとき' do
+
     it 'ログインしたユーザーは自分で投稿した聖地の編集ができる' do
       # 聖地1を投稿したユーザーでログインする
       visit new_user_session_path
@@ -111,8 +119,110 @@ RSpec.describe "聖地編集", type: :system do
       expect(page).to have_content('#{@seichi1.title}+編集したタイトル')
       expect(page).to have_content("北海道")
     end
+
   end
+
   context '聖地編集ができないとき' do
+
+    it 'ログインしたユーザーは自分以外が投稿した聖地の編集はできない' do
+      # 聖地1を投稿したユーザーでログインする
+      visit new_user_session_path
+      fill_in 'Eメール', with: @seichi1.user.email
+      fill_in 'パスワード', with: @seichi1.user.password
+      find('input[name="commit"]').click
+      expect(page).to have_current_path(root_path)
+      # 聖地2の詳細ページへ移動する
+      expect(
+        all('.seichi-list')[0]
+      ).to have_link '作品名', href: seichi_path(@seichi2)
+      visit seichi_path(@seichi2)
+      # 詳細ページに「編集する」ボタンがないことを確認する
+      expect(page).to have_no_content ('編集する')
+    end
+
+    it 'ログインしていないと聖地の編集画面には移動できない' do
+      # トップページにいる
+      visit root_path
+      # 聖地1の詳細ページに移動する
+      expect(
+        all('.seichi-list')[1]
+      ).to have_link '作品名', href: seichi_path(@seichi1)
+      visit seichi_path(@seichi1)
+      # 聖地1の詳細ページに「編集する」ボタンがないことを確認する
+      expect(page).to have_no_content('編集する')
+    end
+
   end
-  
+end
+
+RSpec.describe "聖地削除", type: :system do
+
+  before do
+    @seichi1 = FactoryBot.create(:seichi)
+    @seichi2 = FactoryBot.create(:seichi)
+  end
+
+  context '聖地が削除できるとき' do
+
+    it 'ログインしたユーザーは自分が投稿した聖地を削除することができる' do
+      # 聖地1を投稿したユーザーでログインする
+      visit new_user_session_path
+      fill_in 'Eメール', with: @seichi1.user.email
+      fill_in 'パスワード', with: @seichi1.user.password
+      find('input[name="commit"]').click
+      expect(page).to have_current_path(root_path)
+      # 聖地1の投稿を確認する
+      expect(
+        all('.seichi-list')[1]
+      ).to have_link '作品名', href: seichi_path(@seichi1)
+      # 聖地1の詳細ページに移動する
+      visit seichi_path(@seichi1)
+      # 「削除する」ボタンをクリックし、Seichiモデルのカウントが1減っていることを確認する
+      expect{
+        click_link '削除する'
+        sleep 1
+      }.to change {Seichi.count }.by(-1)
+      # トップページにいることを確認する
+      expect(page).to have_current_path(root_path)
+      # トップページに聖地1の投稿がないことを確認する
+      expect(
+        all('.seichi-list')[1]
+      ).to have_no_link '作品名', href: seichi_path(@seichi1)
+    end
+
+  end
+
+  context '聖地が削除できないとき' do
+
+    it 'ログインしたユーザーは自分以外が投稿した聖地を削除することができない' do
+      # 聖地1を投稿したユーザーでログインする
+      visit new_user_session_path
+      fill_in 'Eメール', with: @seichi1.user.email
+      fill_in 'パスワード', with: @seichi1.user.password
+      find('input[name="commit"]').click
+      expect(page).to have_current_path(root_path)
+      # 聖地2の投稿を確認する
+      expect(
+        all('.seichi-list')[0]
+      ).to have_link '作品名', href: seichi_path(@seichi2)
+      # 聖地2の詳細ページに移動する
+      visit seichi_path(@seichi2)
+      # 「削除する」ボタンがないことを確認する
+      expect(page).to have_no_content('削除する')
+    end
+
+    it 'ログインしていないユーザーは聖地を削除することができない' do 
+      # トップページにいる
+      visit root_path
+      # 聖地1の投稿を確認する
+      expect(
+        all('.seichi-list')[1]
+      ).to have_link '作品名', href: seichi_path(@seichi1)
+      # 聖地1の詳細ページに移動する
+      visit seichi_path(@seichi1)
+      # 「削除する」ボタンがないことを確認する
+      expect(page).to have_no_content('削除する')
+    end
+
+  end
 end
